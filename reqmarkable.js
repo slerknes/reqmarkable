@@ -19,7 +19,7 @@ exports.upload = function(path, handler) {
         form.append('file', fs.createReadStream(path));
         form.submit('http://' + host + '/upload', function(err, res) {
           if (err) handler(err);
-          else handler(false);
+          else handler(false, {path: path});
           res.resume();
         });
       }
@@ -60,12 +60,13 @@ function dirTravel(files, opt, handler) {
       } finally {
         for (var i in data) {
           var ele = { type: data[i].Type,
-                      name: data[i].VissibleName,
-                      vers: data[i].Version,
+                      title: data[i].VissibleName,
+                      version: data[i].Version,
                       path: opt.dir.split('/'),
-                      modi: data[i].ModifiedClient,
+                      modified: new Date(data[i].ModifiedClient),
                       id: data[i].ID
           }
+
           ele.name = ele.name.replace(':','-');
           ele.name = ele.name.replace('?','-');
           if (ele.type == 'DocumentType') {
