@@ -13,7 +13,7 @@ exports.upload = function(path, handler) {
   if (fs.existsSync(path)) {
     isUp(function(err, res) {
       if (err) {
-        if (handler != undefined) handler(err);
+        handler(err, undefined);
       } else {
         var form = new FormData();
         form.append('file', fs.createReadStream(path));
@@ -100,6 +100,7 @@ function getData(opt, handler) {
 
 function isUp(handler) {
   getData({host: host, path: '/'}, function(err, res) {
+    res = new Buffer.concat(res).toString('binary');
     if (err || (!err && res.indexOf('reMarkable') == -1)) err = new Error('reMarkable not found');
     handler(err, res);
   });
