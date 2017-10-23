@@ -10,23 +10,26 @@ npm install reqmarkable
 
 ## Usage
 
-**Upload file**
+**Load module**
 ``` javascript
 var reqMarkable = require('reqmarkable');
+```
 
+
+**Upload file**
+``` javascript
 var path = 'path-to-file.pdf';
-reqMarkable.upload(path);
 
+reqMarkable.upload(path);
 //OR
 reqMarkable.upload(path, function(err, res) {
   if (!err) console.log(res.path + ' successfully uploaded!');
 });
 ```
 
+
 **List files**
 ``` javascript
-var reqMarkable = require('reqmarkable');
-
 reqMarkable.listFiles(function(err, res) {
   if (!err)
     for (var i in res) //array of files
@@ -34,12 +37,11 @@ reqMarkable.listFiles(function(err, res) {
 });
 ```
 
+
 **Download file**
 
 res is a string containing the binary data of the file
 ``` javascript
-var reqMarkable = require('reqmarkable');
-
 var id = 'c42144fd-6a45-4930-ba2d-6cd631b26ec1';
 reqMarkable.download(id, function(err, res) {
   if (!err)
@@ -47,14 +49,14 @@ reqMarkable.download(id, function(err, res) {
 });
 ```
 
+
 **Set host**
 
 This call is not necessary at the moment. reqMarkable defaults to 10.11.99.1
 ``` javascript
-var reqMarkable = require('reqmarkable');
-
 reqMarkable.setHost('10.11.99.1');
 ```
+
 
 **Compressed example**
 
