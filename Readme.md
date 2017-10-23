@@ -10,7 +10,7 @@ npm install reqmarkable
 
 ## Usage
 
-Upload file
+**Upload file**
 ``` javascript
 var reqMarkable = require('reqmarkable');
 
@@ -23,7 +23,7 @@ reqMarkable.upload(path, function(err, res) {
 });
 ```
 
-List files
+**List files**
 ``` javascript
 var reqMarkable = require('reqmarkable');
 
@@ -34,7 +34,7 @@ reqMarkable.listFiles(function(err, res) {
 });
 ```
 
-Download file
+**Download file**
 ``` javascript
 var reqMarkable = require('reqmarkable');
 
@@ -45,7 +45,7 @@ reqMarkable.download(id, function(err, res) {
 });
 ```
 
-Set host
+**Set host**
 ``` javascript
 var reqMarkable = require('reqmarkable');
 
