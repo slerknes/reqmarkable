@@ -35,6 +35,7 @@ reqMarkable.listFiles(function(err, res) {
 ```
 
 **Download file**
+
 res is a string containing the binary data of the file
 ``` javascript
 var reqMarkable = require('reqmarkable');
@@ -47,9 +48,28 @@ reqMarkable.download(id, function(err, res) {
 ```
 
 **Set host**
+
 This call is not necessary at the moment. reqMarkable defaults to 10.11.99.1
 ``` javascript
 var reqMarkable = require('reqmarkable');
 
 reqMarkable.setHost('10.11.99.1');
+```
+
+**Compressed example**
+
+Upload file, get ID of uploaded file, and download uploaded file
+``` javascript
+var reqMarkable = require('reqmarkable'),
+    fs = require('fs');
+
+reqMarkable.upload('one.pdf', function(err, resUpload) {
+  reqMarkable.listFiles(function(err, resList) {
+    for (var i in resList)
+      if (resList[i].title.indexOf(resUpload.path.split('.')[0]) != -1)
+        reqMarkable.download(resList[i].id, function(err, resFile) {
+          fs.writeFileSync('two.pdf', resFile, 'binary');
+        });
+  });
+});
 ```
