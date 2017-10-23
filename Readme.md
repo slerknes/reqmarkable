@@ -22,3 +22,32 @@ reqMarkable.upload(path, function(err, res) {
   if (!err) console.log(res.path + ' successfully uploaded!');
 });
 ```
+
+List files
+``` javascript
+var reqMarkable = require('reqmarkable');
+
+reqMarkable.listFiles(function(err, res) {
+  if (!err)
+    for (var i in res) //array of files
+      console.log(res[i]); // -> {type, title, version, path (array), modified (date obj), id, ext}
+});
+```
+
+Download file
+``` javascript
+var reqMarkable = require('reqmarkable');
+
+var id = 'c42144fd-6a45-4930-ba2d-6cd631b26ec1';
+reqMarkable.download(id, function(err, res) {
+  if (!err)
+    fs.writeFileSync('some/directory', res, 'binary');
+});
+```
+
+Set host
+``` javascript
+var reqMarkable = require('reqmarkable');
+
+reqMarkable.setHost('10.11.99.1'); //this call is atm not necessary
+```
