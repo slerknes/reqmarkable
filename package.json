@@ -1,0 +1,29 @@
+{
+  "name": "reqmarkable",
+  "version": "0.0.1",
+  "description": "Wrapper for making HTTP requests to reMarkable paper tablet",
+  "main": "reqmarkable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Pawzter/reqmarkable.git"
+  },
+  "maintainers": [
+  {
+    "name": "Sigurd Lerkrød Alnes",
+    "email": "sigurd@lerknes.no",
+    "url": "lerknes.no"
+  }
+  ],
+  "keywords": [
+    "remarkable"
+  ],
+  "author": "Sigurd Lerkerød Alnes <sigurd@lerknes.no> (http://lerknes.no)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pawzter/reqmarkable/issues"
+  },
+  "homepage": "https://github.com/Pawzter/reqmarkable#readme"
+}
