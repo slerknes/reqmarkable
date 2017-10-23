@@ -67,13 +67,13 @@ function dirTravel(files, opt, handler) {
                       id: data[i].ID
           }
 
-          ele.name = ele.name.replace(':','-');
-          ele.name = ele.name.replace('?','-');
+          ele.title = ele.title.replace(':','-');
+          ele.title = ele.title.replace('?','-');
           if (ele.type == 'DocumentType') {
             ele.ext = (data[i].fileType == '') ? 'pdf' : data[i].fileType;
             files.push(ele);
           } else if (ele.type == 'CollectionType') {
-            searchQue.push({id: ele.id, dir: opt.dir + '/' + ele.name});
+            searchQue.push({id: ele.id, dir: opt.dir + '/' + ele.title});
           }
         }
         var next = searchQue.pop();
